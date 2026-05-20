@@ -60,7 +60,7 @@ export function Guestbook() {
   const displayedEntries = entries.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
-    <section className="py-section-gap-desktop bg-gray-light text-black" id="board">
+    <section className="py-24 bg-gray-light text-black" id="board">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-gutter">
         <div className="mb-12">
           <h2 className="font-headline-lg text-headline-lg text-black">Guestbook</h2>
