@@ -2,18 +2,18 @@ import React from 'react';
 
 export function Hero() {
   return (
-    <section className="min-h-screen relative flex items-center pt-[72px] bg-white text-black overflow-hidden" id="intro">
-      {/* Image as background on the right */}
-      <div className="absolute right-[-20%] md:right-[-5%] bottom-0 top-[72px] w-[140%] md:w-[65%] z-0 flex items-end md:items-center justify-end pointer-events-none">
-        <img
-          alt="문서현 개발자 프로필 사진"
-          className="w-full h-full object-contain object-right-bottom md:object-right mix-blend-multiply opacity-50 md:opacity-90 transform md:-translate-x-10"
-          src="/profile.png"
-        />
-      </div>
+    <section className="min-h-[90svh] relative flex items-center pt-[72px] bg-white text-black overflow-hidden" id="intro">
+      <div className="max-w-[var(--spacing-container-max)] w-full mx-auto px-gutter relative z-10 h-full flex flex-col justify-center">
+        {/* Image on the right (constrained to wrapper on large screens) */}
+        <div className="absolute right-0 bottom-0 top-0 w-[140%] md:w-[75%] lg:w-[65%] z-0 flex items-end justify-end pointer-events-none">
+          <img
+            alt="문서현 개발자 프로필 사진"
+            className="w-full h-auto max-h-[95%] object-contain object-right-bottom mix-blend-multiply opacity-50 md:opacity-100"
+            src="/profile.png"
+          />
+        </div>
 
-      <div className="max-w-[var(--spacing-container-max)] w-full mx-auto px-gutter relative z-10">
-        <div className="space-y-8 max-w-2xl">
+        <div className="space-y-8 max-w-2xl relative z-10 my-20">
           <div>
             <span className="font-label-mono text-label-mono text-black border border-black/30 px-3 py-1.5 rounded-full uppercase bg-white/50 backdrop-blur-sm">
               AI Developer & Problem Solver
