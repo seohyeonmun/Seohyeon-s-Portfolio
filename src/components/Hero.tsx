@@ -5,10 +5,10 @@ export function Hero() {
     <section className="min-h-[90svh] relative flex items-center pt-[72px] bg-white text-black overflow-hidden" id="intro">
       <div className="max-w-[var(--spacing-container-max)] w-full mx-auto px-gutter relative z-10 h-full flex flex-col justify-center">
         {/* Image on the right (constrained to wrapper on large screens) */}
-        <div className="absolute right-0 bottom-0 top-0 w-[140%] md:w-[75%] lg:w-[65%] z-0 flex items-end justify-end pointer-events-none">
+        <div className="absolute right-0 bottom-0 top-0 w-[150%] md:w-[85%] lg:w-[75%] z-0 flex items-end justify-end pointer-events-none">
           <img
             alt="문서현 개발자 프로필 사진"
-            className="w-full h-auto max-h-[95%] object-contain object-right-bottom mix-blend-multiply opacity-50 md:opacity-100"
+            className="w-full h-auto max-h-[110%] object-contain object-right-bottom mix-blend-multiply opacity-50 md:opacity-100"
             src="/profile.png"
           />
         </div>
