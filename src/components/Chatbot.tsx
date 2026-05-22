@@ -41,16 +41,13 @@ export function Chatbot() {
     <div className="fixed bottom-6 right-6 z-50">
       {/* Chat Window */}
       {isOpen && (
-        <div className="mb-4 w-[340px] sm:w-[380px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-200 overflow-hidden absolute bottom-16 right-0 origin-bottom-right animate-in fade-in zoom-in duration-200">
+        <div className="mb-4 w-[340px] sm:w-[380px] h-[500px] bg-white rounded-2xl shadow-2xl flex flex-col border border-gray-200 overflow-hidden absolute bottom-20 right-0 origin-bottom-right animate-in fade-in zoom-in duration-200">
           {/* Header */}
           <div className="bg-black text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Bot size={24} />
               <span className="font-headline-md text-body-lg font-bold">AI Assistant</span>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-white hover:text-gray-300 transition-colors">
-              <X size={20} />
-            </button>
           </div>
           
           {/* Messages */}
@@ -111,14 +108,12 @@ export function Chatbot() {
       )}
 
       {/* Floating Button */}
-      {!isOpen && (
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl shadow-black/20 hover:scale-105 active:scale-95 transition-all"
-        >
-          <BotMessageSquare size={26} />
-        </button>
-      )}
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center shadow-xl shadow-black/20 hover:scale-105 active:scale-95 transition-all relative z-50"
+      >
+        {isOpen ? <X size={26} /> : <BotMessageSquare size={26} />}
+      </button>
     </div>
   );
 }

@@ -35,11 +35,12 @@ export function Projects() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다.
               </p>
-              <div className="flex gap-4 font-label-mono text-label-mono text-on-surface-variant">
+              <div className="flex flex-wrap gap-x-4 gap-y-2 font-label-mono text-label-mono text-on-surface-variant">
                 <span>Python</span>
                 <span>Whisper</span>
                 <span>OpenWakeWord</span>
                 <span>GPT-SoVITS</span>
+                <span>BIS OpenAPI</span>
               </div>
               <a 
                 href="https://github.com/seohyeonmun/first-project" 
@@ -70,7 +71,7 @@ export function Projects() {
               <p className="font-body-md text-body-md text-on-surface-variant">
                 ........
               </p>
-              <div className="flex gap-4 font-label-mono text-label-mono text-on-surface-variant">
+              <div className="flex flex-wrap gap-x-4 gap-y-2 font-label-mono text-label-mono text-on-surface-variant">
                 <span>..</span>
                 <span>...</span>
                 <span>....</span>
