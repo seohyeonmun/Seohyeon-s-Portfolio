@@ -13,15 +13,21 @@ export function Header() {
     const handleScroll = () => {
       const sections = ['intro', 'skills', 'projects', 'board', 'contact'];
       let current = '';
+      const triggerY = window.innerHeight / 2;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= triggerY && rect.bottom >= triggerY) {
             current = section;
           }
         }
+      }
+
+      // If scrolled to the very bottom, activate the last section
+      if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 50) {
+        current = 'contact';
       }
 
       if (current) {
