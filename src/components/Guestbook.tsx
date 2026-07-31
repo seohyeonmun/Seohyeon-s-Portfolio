@@ -1,11 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Trash2 } from 'lucide-react';
+import { collection, addDoc, onSnapshot, query, orderBy, deleteDoc, doc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+
+enum OperationType {
+  CREATE = 'create',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  LIST = 'list',
+  GET = 'get',
+  WRITE = 'write',
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    operationType,
+    path
+  };
+  console.warn('Firestore Note/Error: ', JSON.stringify(errInfo));
+}
 
 interface Entry {
   id: string;
   name: string;
   date: string;
   message: string;
+  createdAt?: any;
 }
 
 export function Guestbook() {
@@ -16,43 +37,52 @@ export function Guestbook() {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    const savedEntries = localStorage.getItem('guestbookEntries');
-    if (savedEntries) {
-      setEntries(JSON.parse(savedEntries));
-    }
+    const q = query(collection(db, 'guestbook'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const newEntries = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as Entry[];
+      setEntries(newEntries);
+    }, (error) => {
+      handleFirestoreError(error, OperationType.LIST, 'guestbook');
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
     const today = new Date();
     const dateFormatted = `${today.getFullYear()}.${String(today.getMonth() + 1).padStart(2, '0')}.${String(today.getDate()).padStart(2, '0')}`;
 
-    const newEntry: Entry = {
-      id: Date.now().toString(),
-      name: name.trim(),
-      date: dateFormatted,
-      message: message.trim(),
-    };
-
-    const newEntries = [newEntry, ...entries];
-    setEntries(newEntries);
-    localStorage.setItem('guestbookEntries', JSON.stringify(newEntries));
-    setName('');
-    setMessage('');
-    setCurrentPage(1); // Go to first page on new entry
+    try {
+      await addDoc(collection(db, 'guestbook'), {
+        name: name.trim(),
+        date: dateFormatted,
+        message: message.trim(),
+        createdAt: serverTimestamp(),
+      });
+      setName('');
+      setMessage('');
+      setCurrentPage(1); // Go to first page on new entry
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'guestbook');
+    }
   };
 
-  const handleDelete = (id: string) => {
-    const newEntries = entries.filter((entry) => entry.id !== id);
-    setEntries(newEntries);
-    localStorage.setItem('guestbookEntries', JSON.stringify(newEntries));
-    
-    // Adjust current page if the last item on the page is deleted
-    const newTotalPages = Math.ceil(newEntries.length / itemsPerPage);
-    if (currentPage > newTotalPages && newTotalPages > 0) {
-      setCurrentPage(newTotalPages);
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteDoc(doc(db, 'guestbook', id));
+      // Adjust current page if the last item on the page is deleted
+      const newTotalPages = Math.ceil((entries.length - 1) / itemsPerPage);
+      if (currentPage > newTotalPages && newTotalPages > 0) {
+        setCurrentPage(newTotalPages);
+      }
+    } catch (error) {
+      handleFirestoreError(error, OperationType.DELETE, `guestbook/${id}`);
     }
   };
 

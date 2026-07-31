@@ -2,33 +2,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Footer } from '../components/Footer';
+import { projectsData } from '../data/projectsData';
 
 export function AllProjects() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const projects = [
-    {
-      id: 1,
-      title: "교통봇 : 음성 기반 대중교통 안내 서비스",
-      description: "호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다.",
-      image: "/2. 전체 파이프라인 구조도.png",
-      tags: ["AI SERVICE", "VOICE ASSISTANT"],
-      stack: ["Python", "Whisper", "OpenWakeWord", "GPT-SoVITS"],
-      githubUrl: "https://github.com/seohyeonmun/first-project"
-    },
-    {
-      id: 2,
-      title: "추후 프로젝트 추가 예정입니다.",
-      description: "........",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC5sRmtKc3-r9DNmPf63xj40x6ko0E7CEPzvfvjMTrEr2O1cQH4YCftIzKNl8MPtdIP5-9jl2nKTFrJz7ueYFesi1FQpStjXLehHIjbUxAGpNTD6C1gLifXJ-DCe5Y7SJ1i77Nrv_UIqKyBMqSsvo4Z0FAfF1P262bwF6U6eSYOwQG3SFEaEGpDpsbkHjjyBHekVzbpIXB7XnK4GanvmsWl0Igev1nIR6HdZqOZ2rP8ZDH5mt1luSiaj40lYRsnBaFhdwPccWgTOSo",
-      tags: ["1", "2"],
-      stack: ["..", "...", "...."],
-      githubUrl: "https://github.com/여기에_깃허브_주소를_적어주세요_2"
-    }
-    // We can add more placeholder projects later if needed
-  ];
+  const projects = projectsData;
 
   return (
     <>
@@ -73,14 +54,26 @@ export function AllProjects() {
                       <span key={s}>{s}</span>
                     ))}
                   </div>
-                  <a 
-                    href={project.githubUrl}
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-auto block text-center bg-on-surface text-surface px-6 py-3 rounded-lg font-label-mono text-label-mono hover:bg-primary transition-colors w-full"
-                  >
-                    VIEW PROJECT
-                  </a>
+                  <div className="mt-auto flex flex-col gap-2">
+                    <a 
+                      href={project.githubUrl}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block text-center bg-on-surface text-surface px-6 py-3 rounded-lg font-label-mono text-label-mono hover:bg-primary transition-colors w-full"
+                    >
+                      VIEW PROJECT
+                    </a>
+                    {project.myPartUrl && (
+                      <a 
+                        href={project.myPartUrl}
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block text-center border border-outline text-on-surface px-6 py-3 rounded-lg font-label-mono text-label-mono hover:bg-on-surface hover:text-surface transition-colors w-full"
+                      >
+                        VIEW MY PART
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

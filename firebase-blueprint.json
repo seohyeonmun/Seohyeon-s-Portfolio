@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "GuestbookEntry": {
+      "title": "GuestbookEntry",
+      "description": "An entry in the public guestbook",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the person leaving the message"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message they left"
+        },
+        "date": {
+          "type": "string",
+          "description": "Date string"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Server timestamp of creation"
+        }
+      },
+      "required": ["name", "message", "date", "createdAt"]
+    }
+  },
+  "firestore": {
+    "guestbook/{entryId}": {
+      "schema": {
+        "$ref": "#/entities/GuestbookEntry"
+      },
+      "description": "Public guestbook entries"
+    }
+  }
+}

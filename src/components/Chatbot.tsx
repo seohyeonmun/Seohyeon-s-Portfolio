@@ -46,7 +46,7 @@ export function Chatbot() {
           <div className="bg-black text-white p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Bot size={24} />
-              <span className="font-headline-md text-body-lg font-bold">AI Assistant</span>
+              <span className="font-headline-md text-body-lg font-bold">Portfolio AI</span>
             </div>
           </div>
           
@@ -72,16 +72,16 @@ export function Chatbot() {
             {messages.length === 1 && (
               <div className="flex flex-col gap-2 mt-4">
                 <button 
-                  onClick={() => { setInputValue("가장 도전적이었던 프로젝트는 무엇인가요?"); handleSend(); }}
+                  onClick={() => { setInputValue("교통봇 프로젝트에 대해 간단하게 설명해주세요"); handleSend(); }}
                   className="text-left bg-white p-2 text-xs rounded border border-gray-200 text-black hover:bg-gray-100 transition-colors shadow-sm"
                 >
-                  "가장 도전적이었던 프로젝트는 무엇인가요?"
+                  "교통봇 프로젝트에 대해 간단하게 설명해주세요"
                 </button>
                 <button 
-                  onClick={() => { setInputValue("Python 사용 숙련도가 궁금해요."); handleSend(); }}
+                  onClick={() => { setInputValue("멀티 페르소나 창작 지원 AI 서비스에서 맡은 역할이 무엇인가요?"); handleSend(); }}
                   className="text-left bg-white p-2 text-xs rounded border border-gray-200 text-black hover:bg-gray-100 transition-colors shadow-sm"
                 >
-                  "Python 사용 숙련도가 궁금해요."
+                  "멀티 페르소나 창작 지원 AI 서비스에서 맡은 역할이 무엇인가요?"
                 </button>
               </div>
             )}
