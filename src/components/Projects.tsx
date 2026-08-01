@@ -34,7 +34,7 @@ export function Projects() {
               </div>
               <h3 className="font-headline-md text-headline-md">교통봇 : 음성 기반 대중교통 안내 서비스</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
-                호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다.
+                호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다.<br />저는 Whisper 기반 STT를 구현하고, 광주 BIS OpenAPI를 연동했습니다.
               </p>
               <div className="flex flex-wrap gap-x-4 gap-y-2 font-label-mono text-label-mono text-on-surface-variant">
                 <span>Python</span>
@@ -118,7 +118,7 @@ export function Projects() {
               </div>
               <h3 className="font-headline-md text-headline-md">FinePrint - 구독 서비스 소비자 보호 AI Agent</h3>
               <p className="font-body-md text-body-md text-on-surface-variant">
-                구독 서비스의 해지·환불·자동결제 문제를 약관과 소비자 보호 자료를 기반으로 분석하고,<br /> 검증된 답변과 다음 행동을 안내하는 AI Agent입니다.
+                구독 서비스의 해지·환불·자동결제 문제를<br />약관과 소비자 보호 자료를 기반으로 분석하고,<br />검증된 답변과 다음 행동을 안내하는 AI Agent입니다.<br />저는 LangGraph 기반 근거 검증과<br />답변 개선 흐름을 설계·구현했습니다.
               </p>
               <div className="flex flex-wrap gap-x-4 gap-y-2 font-label-mono text-label-mono text-on-surface-variant">
                 <span>LangGraph</span>

@@ -13,7 +13,7 @@ export const projectsData: ProjectItem[] = [
   {
     id: 1,
     title: "교통봇 : 음성 기반 대중교통 안내 서비스",
-    description: "호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다.",
+    description: "호출어 '교통봇' 감지와 음성 인식을 기반으로 실시간 버스 도착 정보를 제공하는 음성 AI 서비스입니다. 저는 Whisper 기반 STT를 구현하고, 광주 BIS OpenAPI를 연동했습니다.",
     image: "/2. 전체 파이프라인 구조도.png",
     tags: ["AI SERVICE", "VOICE ASSISTANT"],
     stack: ["Python", "Whisper", "OpenWakeWord", "GPT-SoVITS"],
@@ -32,11 +32,11 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 3,
-    title: "FinePrint - 구독형 서비스 약관 기반 소비자 보호 AI Agent",
-    description: "........",
+    title: "FinePrint - 구독 서비스 소비자 보호 AI Agent",
+    description: "구독 서비스의 해지·환불·자동결제 문제를 약관과 소비자 보호 자료를 기반으로 분석하고, 검증된 답변과 다음 행동을 안내하는 AI Agent입니다. 저는 LangGraph 기반 근거 검증과 답변 개선 흐름을 설계·구현했습니다.",
     image: "/FinePrint메인페이지.png",
-    tags: ["AI AGENT", "CONSUMER PROTECTION"],
-    stack: ["..", "...", "...."],
+    tags: ["AI SERVICE", "Agent"],
+    stack: ["LangGraph", "LangChain", "OpenAI GPT-4o", "FastAPI", "ChromaDB", "React", "TypeScript"],
     githubUrl: "https://github.com/2026-EST-AIHuman-3/FinePrint",
     myPartUrl: "https://github.com/2026-EST-AIHuman-3/FinePrint/tree/main/msh/agent"
   },
