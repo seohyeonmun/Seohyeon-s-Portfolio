@@ -33,7 +33,7 @@ export function Contact() {
             <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shrink-0">
               <Github size={24} />
             </div>
-            <span className="font-headline-md text-headline-md text-black whitespace-nowrap">GitHub</span>
+            <span className="font-headline-md text-headline-md text-black whitespace-nowrap">GitHub 바로가기</span>
           </a>
         </div>
       </div>
