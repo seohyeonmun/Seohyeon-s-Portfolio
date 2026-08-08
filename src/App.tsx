@@ -13,7 +13,6 @@ import { Chatbot } from './components/Chatbot';
 import { Guestbook } from './components/Guestbook';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { AllProjects } from './pages/AllProjects';
 
 function Home() {
   return (
@@ -38,7 +37,7 @@ export default function App() {
       <div className="antialiased min-h-screen bg-background text-surface">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<AllProjects />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>

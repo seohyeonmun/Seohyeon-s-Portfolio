@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Globe } from 'lucide-react';
 import { projectsData, ProjectItem } from '../data/projectsData';
 
 export function Projects() {
-  const teamProjects = projectsData.filter(p => p.tags.includes('TEAM'));
-  const personalProjects = projectsData.filter(p => p.tags.includes('PERSONAL'));
-  const otherProjects = projectsData.filter(p => !p.tags.includes('TEAM') && !p.tags.includes('PERSONAL'));
+  const homeProjects = projectsData.filter(p => !p.hideInHome);
+  const teamProjects = homeProjects.filter(p => p.tags.includes('TEAM'));
+  const personalProjects = homeProjects.filter(p => p.tags.includes('PERSONAL'));
+  const otherProjects = homeProjects.filter(p => !p.tags.includes('TEAM') && !p.tags.includes('PERSONAL'));
 
   const renderProjectCard = (project: ProjectItem, index: number) => {
     const isReverse = index % 2 === 1;
@@ -83,16 +83,11 @@ export function Projects() {
   return (
     <section className="py-section-gap-desktop bg-surface text-on-surface" id="projects">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-gutter space-y-20">
-        <div className="flex justify-between items-end">
-          <div>
-            <h2 className="font-headline-lg text-headline-lg">Selected Projects</h2>
-            <p className="font-body-md text-body-md text-on-surface-variant mt-2">
-              핵심적인 문제 해결과 독창적 시도를 담은 작업물입니다.
-            </p>
-          </div>
-          <Link to="/projects" className="font-label-mono text-label-mono border-b border-on-surface pb-1 hover:text-primary transition-colors uppercase cursor-pointer">
-            ({projectsData.length}) VIEW ALL WORK
-          </Link>
+        <div>
+          <h2 className="font-headline-lg text-headline-lg">All Projects</h2>
+          <p className="font-body-md text-body-md text-on-surface-variant mt-2">
+            핵심적인 문제 해결과 독창적 시도를 담은 작업물입니다.
+          </p>
         </div>
 
         {/* Team Projects Section */}

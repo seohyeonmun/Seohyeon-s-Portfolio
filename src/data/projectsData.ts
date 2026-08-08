@@ -8,6 +8,7 @@ export interface ProjectItem {
   githubUrl: string;
   demoUrl?: string;
   myPartUrl?: string;
+  hideInHome?: boolean;
 }
 
 export const projectsData: ProjectItem[] = [
@@ -54,10 +55,11 @@ export const projectsData: ProjectItem[] = [
   {
     id: 5,
     title: "새 프로젝트 (New Project)",
-    description: "새로 추가된 프로젝트입니다. 상세 설명과 기술 스택을 입력해주세요.",
+    description: "프로젝트 추가 예정입니다.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop",
     tags: ["PERSONAL", "PROJECT"],
     stack: ["React", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com/seohyeonmun"
+    githubUrl: "https://github.com/seohyeonmun",
+    hideInHome: true
   }
 ];

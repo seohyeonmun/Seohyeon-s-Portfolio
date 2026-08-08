@@ -19,7 +19,14 @@ import {
   Cloud,
   Scan,
   FileText,
-  Camera
+  Camera,
+  AppWindow,
+  HardDrive,
+  MapPin,
+  ArrowRightLeft,
+  Globe,
+  CloudSun,
+  Layers
 } from 'lucide-react';
 import { 
   SiPython, 
@@ -51,7 +58,7 @@ export function Skills() {
         <div className="mb-16">
           <h2 className="font-headline-lg text-headline-lg mb-4 text-black">Technical Proficiency</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Card 1: 언어 */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
@@ -64,6 +71,9 @@ export function Skills() {
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
                   <SiPython /> Python
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <SiJavascript /> JavaScript
                 </span>
               </div>
             </div>
@@ -85,21 +95,44 @@ export function Skills() {
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
                   <SiCss /> CSS3
                 </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: 브라우저 API */}
+          <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
+                  <AppWindow size={24} />
+                </div>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">브라우저 API</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
-                  <SiJavascript /> JavaScript
+                  <Layers size={16} /> DOM
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <HardDrive size={16} /> localStorage
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <MapPin size={16} /> Geolocation API
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <ArrowRightLeft size={16} /> Fetch API
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Card 3: 데이터·머신러닝 */}
+          {/* Card 4: 데이터·ML */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
                   <BarChart3 size={24} />
                 </div>
-                <h3 className="font-headline-md text-headline-md font-bold text-black">데이터 · 머신러닝</h3>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">데이터 · ML</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
@@ -118,7 +151,7 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Card 4: LLM·파인튜닝 */}
+          {/* Card 5: LLM·파인튜닝 */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
@@ -153,14 +186,14 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Card 5: AI Agent·RAG */}
+          {/* Card 6: Agent·RAG */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
                   <Bot size={24} />
                 </div>
-                <h3 className="font-headline-md text-headline-md font-bold text-black">AI Agent · RAG</h3>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">Agent · RAG</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
@@ -185,14 +218,14 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Card 6: 음성·컴퓨터 비전 */}
+          {/* Card 7: 음성·비전 */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
                   <Eye size={24} />
                 </div>
-                <h3 className="font-headline-md text-headline-md font-bold text-black">음성 · 컴퓨터 비전</h3>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">음성 · 비전</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
@@ -214,14 +247,14 @@ export function Skills() {
             </div>
           </div>
 
-          {/* Card 7: API·서비스 구현 */}
+          {/* Card 8: API·서비스 */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
                   <Server size={24} />
                 </div>
-                <h3 className="font-headline-md text-headline-md font-bold text-black">API · 서비스 구현</h3>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">API · 서비스</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
@@ -236,18 +269,21 @@ export function Skills() {
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
                   <Cloud size={16} /> 공공데이터포털 OpenAPI
                 </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <CloudSun size={16} /> OpenWeatherMap API
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Card 8: 협업 및 개발 도구 */}
+          {/* Card 9: 배포·개발 도구 */}
           <div className="bg-white p-6 md:p-8 border border-border-subtle rounded-2xl hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gray-light rounded-xl flex items-center justify-center text-gray-mid group-hover:text-black group-hover:bg-gray-200/80 transition-colors">
                   <Wrench size={24} />
                 </div>
-                <h3 className="font-headline-md text-headline-md font-bold text-black">협업 · 개발 도구</h3>
+                <h3 className="font-headline-md text-headline-md font-bold text-black">배포 · 개발 도구</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
@@ -257,7 +293,10 @@ export function Skills() {
                   <SiGithub /> GitHub
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
-                  <TbBrandVscode /> VSCode
+                  <Globe size={16} /> GitHub Pages
+                </span>
+                <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
+                  <TbBrandVscode /> VS Code
                 </span>
                 <span className="inline-flex items-center gap-1.5 font-label-mono text-label-mono text-black border border-black/10 px-3.5 py-2 rounded-full bg-gray-light/50">
                   <SiGooglecolab /> Google Colab
@@ -276,4 +315,5 @@ export function Skills() {
     </section>
   );
 }
+
 
