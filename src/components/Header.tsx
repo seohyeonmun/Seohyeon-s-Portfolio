@@ -76,9 +76,14 @@ export function Header() {
             );
           })}
         </nav>
-        <button className="bg-black text-white px-6 py-2 rounded-full font-label-mono text-label-mono hover:scale-105 transition-transform active:scale-95">
+        <a
+          href="https://drive.google.com/uc?export=download&id=1X5_p3lx26auhGul4E5PkdxrMIbfUJ16K"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-black text-white px-6 py-2 rounded-full font-label-mono text-label-mono hover:scale-105 transition-transform active:scale-95"
+        >
           이력서 다운로드
-        </button>
+        </a>
       </div>
     </header>
   );
