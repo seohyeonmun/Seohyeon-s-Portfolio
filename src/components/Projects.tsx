@@ -80,6 +80,25 @@ export function Projects() {
     );
   };
 
+  const renderProjectList = (projects: ProjectItem[]) => {
+    return (
+      <div className="flex flex-col gap-12 md:gap-16">
+        {projects.map((project, idx) => (
+          <React.Fragment key={project.id}>
+            {idx > 0 && (
+              <div 
+                className="w-full border-t border-outline-variant/30" 
+                role="separator" 
+                aria-hidden="true" 
+              />
+            )}
+            {renderProjectCard(project, idx)}
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <section className="py-section-gap-desktop bg-surface text-on-surface" id="projects">
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-gutter space-y-20">
@@ -99,9 +118,7 @@ export function Projects() {
               </span>
               <h3 className="font-headline-md text-xl font-bold">팀 프로젝트</h3>
             </div>
-            <div className="space-y-section-gap-mobile">
-              {teamProjects.map((project, idx) => renderProjectCard(project, idx))}
-            </div>
+            {renderProjectList(teamProjects)}
           </div>
         )}
 
@@ -114,9 +131,7 @@ export function Projects() {
               </span>
               <h3 className="font-headline-md text-xl font-bold">개인 프로젝트</h3>
             </div>
-            <div className="space-y-section-gap-mobile">
-              {personalProjects.map((project, idx) => renderProjectCard(project, idx))}
-            </div>
+            {renderProjectList(personalProjects)}
           </div>
         )}
 
@@ -129,9 +144,7 @@ export function Projects() {
               </span>
               <h3 className="font-headline-md text-xl font-bold">기타 프로젝트</h3>
             </div>
-            <div className="space-y-section-gap-mobile">
-              {otherProjects.map((project, idx) => renderProjectCard(project, idx))}
-            </div>
+            {renderProjectList(otherProjects)}
           </div>
         )}
       </div>
