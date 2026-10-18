@@ -1,24 +1,94 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Globe } from 'lucide-react';
 import { projectsData, ProjectItem } from '../data/projectsData';
 
 export function Projects() {
+  const [activeImageId, setActiveImageId] = useState<number | null>(null);
+  const [inViewIds, setInViewIds] = useState<Set<number>>(new Set());
+
   const homeProjects = projectsData.filter(p => !p.hideInHome);
   const teamProjects = homeProjects.filter(p => p.tags.includes('TEAM'));
   const personalProjects = homeProjects.filter(p => p.tags.includes('PERSONAL'));
   const otherProjects = homeProjects.filter(p => !p.tags.includes('TEAM') && !p.tags.includes('PERSONAL'));
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setInViewIds((prev) => {
+          let hasChange = false;
+          const next = new Set(prev);
+          entries.forEach((entry) => {
+            const idAttr = entry.target.getAttribute('data-project-card-id');
+            if (idAttr) {
+              const id = Number(idAttr);
+              if (entry.isIntersecting) {
+                if (!next.has(id)) {
+                  next.add(id);
+                  hasChange = true;
+                }
+              } else {
+                if (next.has(id)) {
+                  next.delete(id);
+                  hasChange = true;
+                }
+              }
+            }
+          });
+          return hasChange ? next : prev;
+        });
+      },
+      {
+        // Focus on the central reading band of the mobile viewport
+        rootMargin: '-18% 0px -22% 0px',
+        threshold: [0.15, 0.4],
+      }
+    );
+
+    const elements = document.querySelectorAll('[data-project-card-id]');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [homeProjects.length]);
+
+  const toggleImageActive = (id: number) => {
+    setActiveImageId(prev => (prev === id ? null : id));
+  };
+
   const renderProjectCard = (project: ProjectItem, index: number) => {
     const isReverse = index % 2 === 1;
+    const isActive = activeImageId === project.id;
+    const isInView = inViewIds.has(project.id);
+
     return (
       <div 
         key={project.id} 
         className={`flex flex-col ${isReverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-center`}
       >
-        <div className="w-full md:w-3/5 bg-surface-container rounded-2xl overflow-hidden shadow-sm group border border-outline-variant/20 p-2 md:p-3 aspect-video flex items-center justify-center">
+        <div 
+          data-project-card-id={project.id}
+          onClick={() => toggleImageActive(project.id)}
+          className={`w-full md:w-3/5 bg-surface-container rounded-2xl overflow-hidden shadow-sm group border transition-all duration-700 p-2 md:p-3 aspect-video flex items-center justify-center cursor-pointer select-none ${
+            isActive 
+              ? 'border-primary/60 shadow-lg ring-1 ring-primary/30' 
+              : isInView
+                ? 'max-md:border-primary/50 max-md:shadow-md max-md:ring-1 max-md:ring-primary/20 border-outline-variant/20 md:hover:border-outline-variant/40'
+                : 'border-outline-variant/20 md:hover:border-outline-variant/40'
+          }`}
+          title="클릭/터치하여 이미지 강조 토글"
+        >
           <img
             alt={project.title}
-            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
+            className={`w-full h-full object-contain transition-all duration-700 ${
+              isActive
+                ? 'scale-105 grayscale-0'
+                : isInView
+                  ? 'max-md:scale-105 max-md:grayscale-0 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105'
+                  : 'max-md:grayscale max-md:scale-100 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105'
+            } active:scale-105 active:grayscale-0`}
             src={project.image}
           />
         </div>
