@@ -17,7 +17,7 @@ export const RAG_KNOWLEDGE_BASE: KnowledgeChunk[] = [
 - 희망 직무 및 도메인: AI 엔지니어, LLM / Agent 엔지니어
 - 이메일: anstjgus221@gmail.com
 - GitHub: https://github.com/seohyeonmun
-- 포트폴리오 웹사이트: https://seohyeonmun.github.io/seohyun.github.io/
+- 포트폴리오 웹사이트: https://seohyeon-s-portfolio.ai.studio
 - 핵심 전문성 및 역량 요약:
   1. LangGraph 기반 근거 검증 Agent 워크플로우 설계 및 실패 복구 분기(REGENERATE, RETRIEVE_AGAIN) 구현 역량
   2. 오픈소스 LLM(Qwen3-8B) LoRA/QLoRA 파인튜닝, 프롬프트 엔지니어링, llama.cpp 런타임 연동
@@ -209,7 +209,7 @@ export const RAG_KNOWLEDGE_BASE: KnowledgeChunk[] = [
     keywords: ["이력서", "다운로드", "PDF", "포트폴리오", "링크"],
     content: `[이력서 다운로드 안내]
 - 문서현 개발자의 정식 이력서(PDF)는 웹사이트 상단 헤더 우측의 '이력서 다운로드' 버튼을 클릭하시면 즉시 다운로드하실 수 있습니다.
-- 다운로드 직접 링크: https://drive.google.com/uc?export=download&id=1X5_p3lx26auhGul4E5PkdxrMIbfUJ16K
+- 다운로드 직접 링크: https://drive.google.com/uc?export=download&id=1a151Yq5_rlDIiGU49_-NGR9jvh-EzAAs
 - 이력서에는 상세 학력(국립순천대학교 정보통신공학과 3.71/4.5), 이스트소프트 AI 휴먼 과정 수료 내역, 정보처리기사 자격증 및 각 프로젝트별 상세 기여 내용이 일목요연하게 정리되어 있습니다.`
   }
 ];
